@@ -10,7 +10,6 @@ C:\Users\galve\Desktop\SIGLO\RegistroSangre\bin\Debug\net7.0-windows\runtimes\wi
 C:\Users\galve\Desktop\SIGLO\RegistroSangre\bin\Debug\net7.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\galve\Desktop\SIGLO\RegistroSangre\bin\Debug\net7.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\RegistroSangre.csproj.AssemblyReference.cache
-C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\RegistroSangre.Form1.resources
 C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\RegistroSangre.Properties.Resources.resources
 C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\RegistroSangre.R_Doctores.resources
 C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\RegistroSangre.R_Pacientes.resources

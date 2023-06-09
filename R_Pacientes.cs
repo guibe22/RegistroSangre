@@ -24,14 +24,14 @@ namespace RegistroSangre
         {
 
         }
-        void Guardar()
+        bool Guardar()
         {
             string connectionString = "Data Source=DESKTOP-3STQB8L\\SQLEXPRESS;Initial Catalog=SangreBD;Integrated Security=True";
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
             try
             {
-                string insertQuery = "INSERT INTO Paciente (Nombre, Apellido, Cedula, Direccion, Telefono, Correo, Genero, FechaNacimiento) VALUES (@Nombre, @Apellido, @Cedula, @Direccion, @Telefono, @Correo, @Genero, @FechaNacimiento)";
+                string insertQuery = "INSERT INTO Pacientes (Nombre, Apellido, Cedula, Direccion, Telefono, Correo, Genero, FechaNacimiento) VALUES (@Nombre, @Apellido, @Cedula, @Direccion, @Telefono, @Correo, @Genero, @FechaNacimiento)";
                 SqlCommand command = new SqlCommand(insertQuery, connection);
                 command.Parameters.AddWithValue("@Nombre", TxtNombre.Text);
                 command.Parameters.AddWithValue("@Apellido", TxtApellido.Text);
@@ -45,11 +45,13 @@ namespace RegistroSangre
 
                 // Si no se produce una excepción, se muestra un mensaje de guardado exitoso
                 MessageBox.Show("Guardado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show("Error al guardar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
 
         }
@@ -131,9 +133,11 @@ namespace RegistroSangre
             {
                 return;
             }
-
-            Guardar();
-            Limpiar();
+            if (Guardar())
+            {
+                Limpiar();
+            }
+           
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -149,6 +153,11 @@ namespace RegistroSangre
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

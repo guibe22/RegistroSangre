@@ -88,12 +88,14 @@
             // 
             // BtnEliminar
             // 
+            this.BtnEliminar.Enabled = false;
             this.BtnEliminar.Location = new System.Drawing.Point(461, 15);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(113, 32);
             this.BtnEliminar.TabIndex = 2;
             this.BtnEliminar.Text = "ELIMINAR";
             this.BtnEliminar.UseVisualStyleBackColor = true;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnNuevo
             // 
