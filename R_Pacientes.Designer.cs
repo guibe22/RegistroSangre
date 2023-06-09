@@ -46,10 +46,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.TxtNacimiento = new System.Windows.Forms.DateTimePicker();
             this.TxtCedula = new System.Windows.Forms.MaskedTextBox();
             this.TxtTelefono = new System.Windows.Forms.MaskedTextBox();
             this.TxtGenero = new System.Windows.Forms.ComboBox();
+            this.TxtNacimiento = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -232,16 +232,6 @@
             this.label4.TabIndex = 17;
             this.label4.Text = "Fecha Nacimiento:";
             // 
-            // TxtNacimiento
-            // 
-            this.TxtNacimiento.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TxtNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.TxtNacimiento.Location = new System.Drawing.Point(412, 357);
-            this.TxtNacimiento.Name = "TxtNacimiento";
-            this.TxtNacimiento.Size = new System.Drawing.Size(152, 23);
-            this.TxtNacimiento.TabIndex = 18;
-            this.TxtNacimiento.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
             // TxtCedula
             // 
             this.TxtCedula.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -271,6 +261,18 @@
             this.TxtGenero.Name = "TxtGenero";
             this.TxtGenero.Size = new System.Drawing.Size(154, 29);
             this.TxtGenero.TabIndex = 21;
+            // 
+            // TxtNacimiento
+            // 
+            this.TxtNacimiento.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TxtNacimiento.CustomFormat = "yyyy-MM-dd";
+            this.TxtNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.TxtNacimiento.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.TxtNacimiento.Location = new System.Drawing.Point(412, 357);
+            this.TxtNacimiento.Name = "TxtNacimiento";
+            this.TxtNacimiento.Size = new System.Drawing.Size(152, 23);
+            this.TxtNacimiento.TabIndex = 18;
+            this.TxtNacimiento.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // R_Pacientes
             // 
@@ -326,9 +328,9 @@
         private Label label7;
         private Label label8;
         private Label label4;
-        private DateTimePicker TxtNacimiento;
         private MaskedTextBox TxtCedula;
         private MaskedTextBox TxtTelefono;
         private ComboBox TxtGenero;
+        private DateTimePicker TxtNacimiento;
     }
 }
