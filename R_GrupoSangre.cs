@@ -11,19 +11,19 @@ using System.Windows.Forms;
 
 namespace RegistroSangre
 {
-    public partial class R_GupoSangre : Form
+    public partial class R_GrupoSangre : Form
     {
         string connectionString = "Data Source=DESKTOP-3STQB8L\\SQLEXPRESS;Initial Catalog=SangreBD;Integrated Security=True";
         SqlConnection connection;
         int GrupoSangreId = 0;
-        public R_GupoSangre()
+        public R_GrupoSangre()
         {
             InitializeComponent();
             connection = new SqlConnection(connectionString);
             connection.Open();
             CargarDatos();
         }
-        public R_GupoSangre(int Id)
+        public R_GrupoSangre(int Id)
         {
             InitializeComponent();
             connection = new SqlConnection(connectionString);

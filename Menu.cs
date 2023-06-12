@@ -12,11 +12,17 @@ namespace RegistroSangre
 {
     public partial class Menu : Form
     {
-        public Menu()
+        public Menu(String usuario, bool admin)
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized; 
             this.Bounds = Screen.PrimaryScreen.Bounds;
+            LbUsuario.Text= usuario;
+            if(admin== false)
+            {
+                BtnConsultaUsuario.Visible = false; 
+                BtnRegistroUsuario.Visible = false;
+            }
         }
         
 
@@ -52,8 +58,31 @@ namespace RegistroSangre
 
         private void button1_Click(object sender, EventArgs e)
         {
-           R_GupoSangre r_GrupoSangre = new R_GupoSangre();
+           R_GrupoSangre r_GrupoSangre = new R_GrupoSangre();
             r_GrupoSangre.Show();
+
+        }
+
+        private void BtnConsultaSangre_Click(object sender, EventArgs e)
+        {
+            C_GrupoSangre c_GrupoSangre = new C_GrupoSangre();
+            c_GrupoSangre.Show();
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            R_Usuario r_Usuario = new R_Usuario();
+            r_Usuario.Show();
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnConsultaUsuario_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -27,4 +27,7 @@ C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\ref\Registr
 C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\RegistroSangre.Menu.resources
 C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\RegistroSangre.C_Pacientes.resources
 C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\RegistroSangre.C_Doctores.resources
-C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\RegistroSangre.R_GupoSangre.resources
+C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\RegistroSangre.C_GrupoSangre.resources
+C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\RegistroSangre.R_GrupoSangre.resources
+C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\RegistroSangre.Login.resources
+C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\RegistroSangre.R_Usuario.resources

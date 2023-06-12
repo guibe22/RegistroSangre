@@ -1,6 +1,6 @@
 ﻿namespace RegistroSangre
 {
-    partial class R_GupoSangre
+    partial class R_GrupoSangre
     {
         /// <summary>
         /// Required designer variable.

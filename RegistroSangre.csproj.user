@@ -4,7 +4,13 @@
     <Compile Update="C_Doctores.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="C_GrupoSangre.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="C_Pacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Menu.cs">
@@ -13,10 +19,13 @@
     <Compile Update="R_Doctores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="R_GupoSangre.cs">
+    <Compile Update="R_GrupoSangre.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="R_Pacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="R_Usuario.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
