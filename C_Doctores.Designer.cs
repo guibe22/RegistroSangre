@@ -1,6 +1,6 @@
 ﻿namespace RegistroSangre
 {
-    partial class C_Pacientes
+    partial class C_Doctores
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,8 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.BtnModificar = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -41,10 +41,11 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(-124, -1);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1185, 65);
-            this.panel1.TabIndex = 1;
+            this.panel1.Size = new System.Drawing.Size(1185, 63);
+            this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label1
             // 
@@ -54,7 +55,18 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(322, 40);
             this.label1.TabIndex = 0;
-            this.label1.Text = "CONSULTA PACIENTES";
+            this.label1.Text = "CONSULTA DOCTORES";
+            // 
+            // BtnModificar
+            // 
+            this.BtnModificar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnModificar.Location = new System.Drawing.Point(3, 69);
+            this.BtnModificar.Name = "BtnModificar";
+            this.BtnModificar.Size = new System.Drawing.Size(145, 42);
+            this.BtnModificar.TabIndex = 4;
+            this.BtnModificar.Text = "MODIFICAR";
+            this.BtnModificar.UseVisualStyleBackColor = true;
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // dataGridView1
             // 
@@ -62,34 +74,22 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(-1, 118);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 129);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(940, 333);
-            this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.Size = new System.Drawing.Size(1324, 333);
+            this.dataGridView1.TabIndex = 5;
             // 
-            // BtnModificar
-            // 
-            this.BtnModificar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnModificar.Location = new System.Drawing.Point(-1, 70);
-            this.BtnModificar.Name = "BtnModificar";
-            this.BtnModificar.Size = new System.Drawing.Size(145, 42);
-            this.BtnModificar.TabIndex = 3;
-            this.BtnModificar.Text = "MODIFICAR";
-            this.BtnModificar.UseVisualStyleBackColor = true;
-            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
-            // 
-            // C_Pacientes
+            // C_Doctores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(939, 450);
-            this.Controls.Add(this.BtnModificar);
+            this.ClientSize = new System.Drawing.Size(1184, 450);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.BtnModificar);
             this.Controls.Add(this.panel1);
-            this.Name = "C_Pacientes";
-            this.Text = "C_Pacientes";
-            this.Load += new System.EventHandler(this.C_Pacientes_Load);
+            this.Name = "C_Doctores";
+            this.Text = "C_Doctores";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -101,7 +101,7 @@
 
         private Panel panel1;
         private Label label1;
-        private DataGridView dataGridView1;
         private Button BtnModificar;
+        private DataGridView dataGridView1;
     }
 }

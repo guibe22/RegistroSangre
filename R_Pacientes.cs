@@ -15,12 +15,43 @@ namespace RegistroSangre
     {
         string connectionString = "Data Source=DESKTOP-3STQB8L\\SQLEXPRESS;Initial Catalog=SangreBD;Integrated Security=True";
         SqlConnection connection;
+        int PacienteId = 0;
         public R_Pacientes()
         {
 
             InitializeComponent();
             connection = new SqlConnection(connectionString);
             connection.Open();
+
+
+        }
+        public R_Pacientes(int id)
+        {
+
+            InitializeComponent();
+            connection = new SqlConnection(connectionString);
+            connection.Open();
+            PacienteId = id;
+            BtnEliminar.Enabled = true;
+
+            string selectQuery = "SELECT Nombre, Apellido, Cedula, Direccion, Telefono, Correo, Genero, FechaNacimiento FROM Pacientes WHERE PacienteID = @PacienteID";
+            SqlCommand command = new SqlCommand(selectQuery, connection);
+            command.Parameters.AddWithValue("@PacienteID", PacienteId);
+
+            SqlDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                // Asignar los valores a los TextBox correspondientes
+                TxtNombre.Text = reader["Nombre"].ToString();
+                TxtApellido.Text = reader["Apellido"].ToString();
+                TxtCedula.Text = reader["Cedula"].ToString();
+                TxtDireccion.Text = reader["Direccion"].ToString();
+                TxtTelefono.Text = reader["Telefono"].ToString();
+                TxtCorreo.Text = reader["Correo"].ToString();
+                TxtGenero.Text = reader["Genero"].ToString();
+                TxtNacimiento.Text = reader["FechaNacimiento"].ToString();
+            }
+            reader.Close();
 
 
         }
@@ -44,6 +75,7 @@ namespace RegistroSangre
                 command.Parameters.AddWithValue("@Correo", TxtCorreo.Text);
                 command.Parameters.AddWithValue("@Genero", TxtGenero.Text);
                 command.Parameters.AddWithValue("@FechaNacimiento", TxtNacimiento.Text);
+
                 command.ExecuteNonQuery();
 
                 // Si no se produce una excepción, se muestra un mensaje de guardado exitoso
@@ -58,6 +90,37 @@ namespace RegistroSangre
             }
 
         }
+        bool Modificar()
+        {
+            try
+            {
+                string updateQuery = "UPDATE Pacientes SET Nombre = @Nombre, Apellido = @Apellido, Cedula = @Cedula, Direccion = @Direccion, Telefono = @Telefono, Correo = @Correo, Genero = @Genero, FechaNacimiento = @FechaNacimiento WHERE PacienteId = @PacienteId ";
+                SqlCommand command = new SqlCommand(updateQuery, connection);
+                command.Parameters.AddWithValue("@Nombre", TxtNombre.Text);
+                command.Parameters.AddWithValue("@Apellido", TxtApellido.Text);
+                command.Parameters.AddWithValue("@Direccion", TxtDireccion.Text);
+                command.Parameters.AddWithValue("@Cedula", TxtCedula.Text);
+                command.Parameters.AddWithValue("@Telefono", TxtTelefono.Text);
+                command.Parameters.AddWithValue("@Correo", TxtCorreo.Text);
+                command.Parameters.AddWithValue("@Genero", TxtGenero.Text);
+                command.Parameters.AddWithValue("@FechaNacimiento", TxtNacimiento.Text);
+                command.Parameters.AddWithValue("@PacienteId", PacienteId);
+
+
+                command.ExecuteNonQuery();
+
+                MessageBox.Show("Modificado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al modificar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+
         void Limpiar()
         {
             TxtNombre.Clear();
@@ -126,6 +189,23 @@ namespace RegistroSangre
 
 
         }
+        private void Eliminar()
+        {
+            try
+            {
+                string updateQuery = "UPDATE Pacientes SET Deleted = 1 WHERE PacienteId = @PacienteId";
+                SqlCommand command = new SqlCommand(updateQuery, connection);
+                command.Parameters.AddWithValue("@PacienteID", PacienteId);
+
+                command.ExecuteNonQuery();
+
+                MessageBox.Show("Eliminado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
 
 
@@ -136,10 +216,23 @@ namespace RegistroSangre
             {
                 return;
             }
-            if (Guardar())
+            if (PacienteId > 0)
             {
-                Limpiar();
+                if (Modificar())
+                {
+                    Limpiar();
+                    BtnEliminar.Enabled = false;
+                }
+                PacienteId = 0;
             }
+            else
+            {
+                if (Guardar())
+                {
+                    Limpiar();
+                }
+            }
+           
            
         }
 
@@ -160,6 +253,10 @@ namespace RegistroSangre
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
+            Eliminar();
+            PacienteId = 0;
+            Limpiar();
+            BtnEliminar.Enabled = false;
 
         }
     }

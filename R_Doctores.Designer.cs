@@ -99,6 +99,7 @@
             this.BtnEliminar.TabIndex = 2;
             this.BtnEliminar.Text = "ELIMINAR";
             this.BtnEliminar.UseVisualStyleBackColor = true;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnNuevo
             // 
@@ -108,6 +109,7 @@
             this.BtnNuevo.TabIndex = 1;
             this.BtnNuevo.Text = "NUEVO";
             this.BtnNuevo.UseVisualStyleBackColor = true;
+            this.BtnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
             // BtnGuardar
             // 
@@ -347,6 +349,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "R_Doctores";
             this.Text = "R_Doctores";
+            this.Load += new System.EventHandler(this.R_Doctores_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

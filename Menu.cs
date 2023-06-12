@@ -37,5 +37,24 @@ namespace RegistroSangre
             R_Doctores r_Doctores = new R_Doctores();
             r_Doctores.Show();
         }
+
+        private void BtnConsultaPacientes_Click(object sender, EventArgs e)
+        {
+            C_Pacientes c_Pacientes = new C_Pacientes();
+            c_Pacientes.Show();
+        }
+
+        private void BtnConsultaDoctores_Click(object sender, EventArgs e)
+        {
+            C_Doctores c_Doctores = new C_Doctores();
+            c_Doctores.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           R_GupoSangre r_GrupoSangre = new R_GupoSangre();
+            r_GrupoSangre.Show();
+
+        }
     }
 }

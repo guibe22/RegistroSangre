@@ -37,6 +37,7 @@
             this.BtnConsultaDoctores = new System.Windows.Forms.Button();
             this.BtnRegistroDoctores = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -108,6 +109,7 @@
             this.BtnConsultaPacientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnConsultaPacientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnConsultaPacientes.UseVisualStyleBackColor = false;
+            this.BtnConsultaPacientes.Click += new System.EventHandler(this.BtnConsultaPacientes_Click);
             // 
             // BtnConsultaDoctores
             // 
@@ -125,6 +127,7 @@
             this.BtnConsultaDoctores.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnConsultaDoctores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnConsultaDoctores.UseVisualStyleBackColor = false;
+            this.BtnConsultaDoctores.Click += new System.EventHandler(this.BtnConsultaDoctores_Click);
             // 
             // BtnRegistroDoctores
             // 
@@ -149,20 +152,39 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.BtnRegistroPacientes);
             this.panel2.Controls.Add(this.BtnConsultaDoctores);
             this.panel2.Controls.Add(this.BtnConsultaPacientes);
             this.panel2.Controls.Add(this.BtnRegistroDoctores);
             this.panel2.Location = new System.Drawing.Point(0, 77);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(231, 372);
+            this.panel2.Size = new System.Drawing.Size(231, 435);
             this.panel2.TabIndex = 5;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button1.BackColor = System.Drawing.Color.ForestGreen;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(3, 334);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(225, 60);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "REGISTRO DE GRUP. SANG.";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 513);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Menu";
@@ -184,5 +206,6 @@
         private Button BtnConsultaDoctores;
         private Button BtnRegistroDoctores;
         private Panel panel2;
+        private Button button1;
     }
 }
