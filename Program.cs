@@ -10,7 +10,7 @@ namespace RegistroSangre
         {
     
             ApplicationConfiguration.Initialize();
-            Application.Run(new R_Pacientes());
+            Application.Run(new Menu());
         }
     }
 }

@@ -13,9 +13,13 @@ namespace RegistroSangre
 {
     public partial class R_Doctores : Form
     {
+        string connectionString = "Data Source=DESKTOP-3STQB8L\\SQLEXPRESS;Initial Catalog=SangreBD;Integrated Security=True";
+        SqlConnection connection;
         public R_Doctores()
         {
             InitializeComponent();
+            connection= new SqlConnection(connectionString);
+            connection.Open();
         }
         bool Validar()
         {
@@ -104,9 +108,8 @@ namespace RegistroSangre
 
        bool Guardar()
         {
-            string connectionString = "Data Source=DESKTOP-3STQB8L\\SQLEXPRESS;Initial Catalog=SangreBD;Integrated Security=True";
-            SqlConnection connection = new SqlConnection(connectionString);
-            connection.Open();
+           
+           
             try
             {
                 string insertQuery = "INSERT INTO Doctores (Nombre, Apellido, Cedula, Direccion, Telefono, Correo, Genero, FechaNacimiento, Especialidad, Consultorio) VALUES (@Nombre, @Apellido, @Cedula, @Direccion, @Telefono, @Correo, @Genero, @FechaNacimiento, @Especialidad, @Consultorio)";
