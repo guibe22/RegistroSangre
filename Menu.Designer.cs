@@ -41,6 +41,7 @@
             this.BtnRegistroUsuario = new System.Windows.Forms.Button();
             this.BtnConsultaSangre = new System.Windows.Forms.Button();
             this.BtnRegistroGrupoSangre = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -240,11 +241,28 @@
             this.BtnRegistroGrupoSangre.UseVisualStyleBackColor = false;
             this.BtnRegistroGrupoSangre.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button1.BackColor = System.Drawing.Color.CadetBlue;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(573, 83);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(225, 60);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "REGISTRO DE PANCIENTES";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 746);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Menu";
@@ -271,5 +289,6 @@
         private Button BtnConsultaSangre;
         private Button BtnConsultaUsuario;
         private Button BtnRegistroUsuario;
+        private Button button1;
     }
 }
