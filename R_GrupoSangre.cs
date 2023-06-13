@@ -136,6 +136,7 @@ namespace RegistroSangre
             TxtVolumen.Clear();
             TxtEstado.Text = "";
             GrupoSangreId = 0;
+            BtnEliminar.Enabled = false;
 
 
         }

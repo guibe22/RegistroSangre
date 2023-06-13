@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.BtnInciar = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label2
@@ -73,6 +74,7 @@
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(208, 29);
             this.txtContraseña.TabIndex = 26;
+            this.txtContraseña.UseSystemPasswordChar = true;
             this.txtContraseña.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // BtnInciar
@@ -81,7 +83,7 @@
             this.BtnInciar.BackColor = System.Drawing.Color.ForestGreen;
             this.BtnInciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnInciar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnInciar.Location = new System.Drawing.Point(126, 222);
+            this.BtnInciar.Location = new System.Drawing.Point(126, 245);
             this.BtnInciar.Name = "BtnInciar";
             this.BtnInciar.Size = new System.Drawing.Size(126, 45);
             this.BtnInciar.TabIndex = 28;
@@ -90,16 +92,29 @@
             this.BtnInciar.UseVisualStyleBackColor = false;
             this.BtnInciar.Click += new System.EventHandler(this.BtnRegistroPacientes_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(91, 220);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(105, 19);
+            this.checkBox1.TabIndex = 29;
+            this.checkBox1.Text = "ver Contraseña";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(395, 302);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.BtnInciar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNombreUsuario);
+            this.DoubleBuffered = true;
             this.Name = "Login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
@@ -115,5 +130,6 @@
         private Label label1;
         private TextBox txtContraseña;
         private Button BtnInciar;
+        private CheckBox checkBox1;
     }
 }

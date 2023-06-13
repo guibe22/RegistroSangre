@@ -137,7 +137,9 @@ namespace RegistroSangre
             TxtCorreo.Clear();
             TxtConsultorio.Clear();
             TxtEspecialidad.Clear();
+            TxtGenero.Text = "";
             DoctorId = 0;
+            BtnEliminar.Enabled = false;
         }
 
        bool Guardar()

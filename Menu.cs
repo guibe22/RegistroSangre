@@ -83,7 +83,22 @@ namespace RegistroSangre
 
         private void BtnConsultaUsuario_Click(object sender, EventArgs e)
         {
+            C_Usuarios c_Usuarios = new C_Usuarios();
+            c_Usuarios.Show();
 
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

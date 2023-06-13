@@ -129,7 +129,9 @@ namespace RegistroSangre
             TxtCedula.Clear();
             TxtTelefono.Clear();
             TxtCorreo.Clear();
-           
+            TxtGenero.Text = "";
+            PacienteId = 0;
+            BtnEliminar.Enabled = false;
 
         }
         bool Validar()
@@ -223,7 +225,7 @@ namespace RegistroSangre
                     Limpiar();
                     BtnEliminar.Enabled = false;
                 }
-                PacienteId = 0;
+               
             }
             else
             {
@@ -254,7 +256,6 @@ namespace RegistroSangre
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
             Eliminar();
-            PacienteId = 0;
             Limpiar();
             BtnEliminar.Enabled = false;
 

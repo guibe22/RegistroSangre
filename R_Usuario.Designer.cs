@@ -33,13 +33,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtContra = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnNuevo = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -93,14 +91,14 @@
             this.label3.TabIndex = 27;
             this.label3.Text = "Contraseña:";
             // 
-            // textBox1
+            // TxtContra
             // 
-            this.textBox1.CausesValidation = false;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(260, 228);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(243, 29);
-            this.textBox1.TabIndex = 26;
+            this.TxtContra.CausesValidation = false;
+            this.TxtContra.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TxtContra.Location = new System.Drawing.Point(260, 228);
+            this.TxtContra.Name = "TxtContra";
+            this.TxtContra.Size = new System.Drawing.Size(243, 29);
+            this.TxtContra.TabIndex = 26;
             // 
             // panel2
             // 
@@ -123,6 +121,7 @@
             this.BtnEliminar.TabIndex = 2;
             this.BtnEliminar.Text = "ELIMINAR";
             this.BtnEliminar.UseVisualStyleBackColor = true;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnNuevo
             // 
@@ -132,6 +131,7 @@
             this.BtnNuevo.TabIndex = 1;
             this.BtnNuevo.Text = "NUEVO";
             this.BtnNuevo.UseVisualStyleBackColor = true;
+            this.BtnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
             // BtnGuardar
             // 
@@ -141,44 +141,22 @@
             this.BtnGuardar.TabIndex = 0;
             this.BtnGuardar.Text = "GUARDAR";
             this.BtnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(347, 273);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 21);
-            this.label4.TabIndex = 30;
-            this.label4.Text = "Nivel:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "NORMAL",
-            "ADMIN"});
-            this.comboBox1.Location = new System.Drawing.Point(260, 316);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(243, 29);
-            this.comboBox1.TabIndex = 31;
+            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // R_Usuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TxtContra);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TxtNombre);
             this.Controls.Add(this.panel1);
             this.Name = "R_Usuario";
             this.Text = "R_Usuario";
+            this.Load += new System.EventHandler(this.R_Usuario_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -194,12 +172,10 @@
         private Label label2;
         private TextBox TxtNombre;
         private Label label3;
-        private TextBox textBox1;
+        private TextBox TxtContra;
         private Panel panel2;
         private Button BtnEliminar;
         private Button BtnNuevo;
         private Button BtnGuardar;
-        private Label label4;
-        private ComboBox comboBox1;
     }
 }

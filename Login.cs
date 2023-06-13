@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace RegistroSangre
 {
@@ -21,6 +22,7 @@ namespace RegistroSangre
             connection = new SqlConnection(connectionString);
             connection.Open();
             CrearUsuarioSiEstaVacia();
+         
 
 
         }
@@ -70,7 +72,8 @@ namespace RegistroSangre
 
                         Menu menu = new Menu(nombreUsuario, esAdmin);
                         menu.Show();
-                        this.Close();
+
+                        this.Visible = false;
 
                     }
                    
@@ -116,6 +119,21 @@ namespace RegistroSangre
                 return;
             }
             InciarSesion();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+        
+            if (checkBox1.Checked)
+            {
+               
+                txtContraseña.UseSystemPasswordChar = false;
+            }
+            else
+            {
+               
+                txtContraseña.UseSystemPasswordChar = true;
+            }
         }
     }
 }
