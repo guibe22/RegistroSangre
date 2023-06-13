@@ -30,7 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.LbUsuario = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnRegistroPacientes = new System.Windows.Forms.Button();
             this.BtnConsultaPacientes = new System.Windows.Forms.Button();
@@ -41,8 +43,6 @@
             this.BtnRegistroUsuario = new System.Windows.Forms.Button();
             this.BtnConsultaSangre = new System.Windows.Forms.Button();
             this.BtnRegistroGrupoSangre = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -52,29 +52,65 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.LbUsuario);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(798, 76);
             this.panel1.TabIndex = 0;
             // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.BackColor = System.Drawing.Color.Crimson;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(641, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(154, 60);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "CERRAR      PROGRAMA";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // LbUsuario
             // 
             this.LbUsuario.AutoSize = true;
             this.LbUsuario.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LbUsuario.Location = new System.Drawing.Point(382, 8);
+            this.LbUsuario.Location = new System.Drawing.Point(219, 8);
             this.LbUsuario.Name = "LbUsuario";
             this.LbUsuario.Size = new System.Drawing.Size(218, 50);
             this.LbUsuario.TabIndex = 1;
             this.LbUsuario.Text = "Bienvenido";
             this.LbUsuario.Click += new System.EventHandler(this.LbUsuario_Click);
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.CadetBlue;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(475, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(154, 60);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "CERRAR SESION";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(169, 8);
+            this.label1.Location = new System.Drawing.Point(13, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(218, 50);
             this.label1.TabIndex = 0;
@@ -86,6 +122,7 @@
             this.BtnRegistroPacientes.BackColor = System.Drawing.Color.ForestGreen;
             this.BtnRegistroPacientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRegistroPacientes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnRegistroPacientes.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.BtnRegistroPacientes.Image = ((System.Drawing.Image)(resources.GetObject("BtnRegistroPacientes.Image")));
             this.BtnRegistroPacientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnRegistroPacientes.Location = new System.Drawing.Point(3, 20);
@@ -104,6 +141,7 @@
             this.BtnConsultaPacientes.BackColor = System.Drawing.Color.ForestGreen;
             this.BtnConsultaPacientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnConsultaPacientes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnConsultaPacientes.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.BtnConsultaPacientes.Image = ((System.Drawing.Image)(resources.GetObject("BtnConsultaPacientes.Image")));
             this.BtnConsultaPacientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnConsultaPacientes.Location = new System.Drawing.Point(3, 97);
@@ -122,6 +160,7 @@
             this.BtnConsultaDoctores.BackColor = System.Drawing.Color.ForestGreen;
             this.BtnConsultaDoctores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnConsultaDoctores.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnConsultaDoctores.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.BtnConsultaDoctores.Image = ((System.Drawing.Image)(resources.GetObject("BtnConsultaDoctores.Image")));
             this.BtnConsultaDoctores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnConsultaDoctores.Location = new System.Drawing.Point(3, 254);
@@ -140,6 +179,7 @@
             this.BtnRegistroDoctores.BackColor = System.Drawing.Color.ForestGreen;
             this.BtnRegistroDoctores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRegistroDoctores.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnRegistroDoctores.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.BtnRegistroDoctores.Image = ((System.Drawing.Image)(resources.GetObject("BtnRegistroDoctores.Image")));
             this.BtnRegistroDoctores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnRegistroDoctores.Location = new System.Drawing.Point(3, 175);
@@ -176,6 +216,7 @@
             this.BtnConsultaUsuario.BackColor = System.Drawing.Color.ForestGreen;
             this.BtnConsultaUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnConsultaUsuario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnConsultaUsuario.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.BtnConsultaUsuario.Image = ((System.Drawing.Image)(resources.GetObject("BtnConsultaUsuario.Image")));
             this.BtnConsultaUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnConsultaUsuario.Location = new System.Drawing.Point(3, 568);
@@ -194,6 +235,7 @@
             this.BtnRegistroUsuario.BackColor = System.Drawing.Color.ForestGreen;
             this.BtnRegistroUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRegistroUsuario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnRegistroUsuario.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.BtnRegistroUsuario.Image = ((System.Drawing.Image)(resources.GetObject("BtnRegistroUsuario.Image")));
             this.BtnRegistroUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnRegistroUsuario.Location = new System.Drawing.Point(3, 487);
@@ -212,6 +254,7 @@
             this.BtnConsultaSangre.BackColor = System.Drawing.Color.ForestGreen;
             this.BtnConsultaSangre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnConsultaSangre.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnConsultaSangre.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.BtnConsultaSangre.Image = ((System.Drawing.Image)(resources.GetObject("BtnConsultaSangre.Image")));
             this.BtnConsultaSangre.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnConsultaSangre.Location = new System.Drawing.Point(3, 410);
@@ -230,6 +273,7 @@
             this.BtnRegistroGrupoSangre.BackColor = System.Drawing.Color.ForestGreen;
             this.BtnRegistroGrupoSangre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRegistroGrupoSangre.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnRegistroGrupoSangre.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.BtnRegistroGrupoSangre.Image = ((System.Drawing.Image)(resources.GetObject("BtnRegistroGrupoSangre.Image")));
             this.BtnRegistroGrupoSangre.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnRegistroGrupoSangre.Location = new System.Drawing.Point(3, 334);
@@ -242,47 +286,11 @@
             this.BtnRegistroGrupoSangre.UseVisualStyleBackColor = false;
             this.BtnRegistroGrupoSangre.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.CadetBlue;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(644, 83);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 60);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "CERRAR SESION";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.Crimson;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(644, 160);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(154, 60);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "CERRAR      PROGRAMA";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 746);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Menu";

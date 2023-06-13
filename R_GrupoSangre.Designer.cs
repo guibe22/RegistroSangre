@@ -227,7 +227,8 @@
             this.TxtEstado.FormattingEnabled = true;
             this.TxtEstado.Items.AddRange(new object[] {
             "DONADO",
-            "ENTREGADO"});
+            "ENTREGADO",
+            "RECIBIDO"});
             this.TxtEstado.Location = new System.Drawing.Point(83, 311);
             this.TxtEstado.Name = "TxtEstado";
             this.TxtEstado.Size = new System.Drawing.Size(247, 29);
@@ -243,7 +244,7 @@
             this.label5.TabIndex = 50;
             this.label5.Text = "Estado";
             // 
-            // R_GupoSangre
+            // R_GrupoSangre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -262,7 +263,7 @@
             this.Controls.Add(this.TxtPaciente);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.panel1);
-            this.Name = "R_GupoSangre";
+            this.Name = "R_GrupoSangre";
             this.Text = "R_GupoSangre";
             this.Load += new System.EventHandler(this.R_GupoSangre_Load);
             this.panel1.ResumeLayout(false);
