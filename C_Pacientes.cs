@@ -49,7 +49,7 @@ namespace RegistroSangre
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 DataGridViewRow row = dataGridView1.SelectedRows[0];
-                string idString = row.Cells["PacienteID"].Value.ToString();
+                string? idString = row.Cells["PacienteID"].Value.ToString();
                 int id = int.Parse(idString);
                 R_Pacientes r_Pacientes = new R_Pacientes(id); 
                 r_Pacientes.Show();
@@ -63,7 +63,7 @@ namespace RegistroSangre
 
         private void C_Pacientes_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

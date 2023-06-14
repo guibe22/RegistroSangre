@@ -21,7 +21,7 @@ namespace RegistroSangre
             InitializeComponent();
             connection = new SqlConnection(connectionString);
             connection.Open();
-            string query = "SELECT GrupoSangreId , Paciente, Doctor, Grupo, Volumen, Estado , Fecha FROM GrupoSangre WHERE Deleted = 0";
+            string query = "SELECT GrupoSangreId , Paciente, PacienteId, Doctor, DoctorId, Grupo, Volumen, Estado , Fecha FROM GrupoSangre WHERE Deleted = 0";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

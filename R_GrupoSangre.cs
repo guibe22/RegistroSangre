@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace RegistroSangre
 {
@@ -16,6 +19,8 @@ namespace RegistroSangre
         string connectionString = "Data Source=DESKTOP-3STQB8L\\SQLEXPRESS;Initial Catalog=SangreBD;Integrated Security=True";
         SqlConnection connection;
         int GrupoSangreId = 0;
+        
+
         public R_GrupoSangre()
         {
             InitializeComponent();
@@ -40,9 +45,10 @@ namespace RegistroSangre
             SqlDataReader reader = command.ExecuteReader();
             if (reader.Read())
             {
-                // Asignar los valores a los TextBox correspondientes
-                TxtPaciente.Text = reader["Paciente"].ToString();
-                TxtDoctor.Text = reader["Doctor"].ToString();
+                string? Doctor = reader["Doctor"].ToString();
+                string? Paciente = reader["Paciente"].ToString();
+                GetPaciente(Paciente);
+                GetDoctor(Doctor);
                 TxtGrupo.Text = reader["Grupo"].ToString();
                 TxtVolumen.Text= reader["Volumen"].ToString();
                 TxtEstado.Text = reader["Estado"].ToString();
@@ -62,36 +68,46 @@ namespace RegistroSangre
                 connection.Open();
 
                 
-                string selectQuery = "SELECT Nombre, Apellido, Cedula FROM Pacientes WHERE Deleted=0";
+                string selectQuery = "SELECT PacienteId, Nombre, Apellido, Cedula FROM Pacientes WHERE Deleted=0";
                 SqlCommand command = new SqlCommand(selectQuery, connection);
 
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    string nombre = reader["Nombre"].ToString();
-                    string apellido = reader["Apellido"].ToString();
-                    string cedula = reader["Cedula"].ToString();
-                    string nombreCompleto = $"{nombre} {apellido} ({cedula})";
+                    string? nombre = reader["Nombre"].ToString();
+                    string? apellido = reader["Apellido"].ToString();
+                    string? cedula = reader["Cedula"].ToString();
+                    string? nombreCompleto = $"{nombre} {apellido} ({cedula})";
+                    int Id = Convert.ToInt32(reader["PacienteId"]);
+                    KeyValuePair<int, string> item = new KeyValuePair<int, string>(Id, nombreCompleto);
 
-                    TxtPaciente.Items.Add(nombreCompleto);
+                    TxtPaciente.Items.Add(item);
                 }
+                TxtPaciente.ValueMember = "Key";
+                TxtPaciente.DisplayMember = "Value";
                 reader.Close();
 
-                selectQuery = "SELECT Nombre, Apellido, Especialidad FROM Doctores WHERE Deleted=0";
+                selectQuery = "SELECT DoctorId, Nombre, Apellido, Especialidad FROM Doctores WHERE Deleted=0";
                  command = new SqlCommand(selectQuery, connection);
                  reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    string nombre = reader["Nombre"].ToString();
-                    string apellido = reader["Apellido"].ToString();
-                    string especialidad = reader["Especialidad"].ToString();
+                    string? nombre = reader["Nombre"].ToString();
+                    string? apellido = reader["Apellido"].ToString();
+                    string? especialidad = reader["Especialidad"].ToString();
                     string nombreCompleto = $"{nombre} {apellido} ({especialidad})";
+                    int Id = Convert.ToInt32(reader["DoctorId"]);
 
-                    TxtDoctor.Items.Add(nombreCompleto);
+                    KeyValuePair<int, string> item = new KeyValuePair<int, string>(Id, nombreCompleto);
+
+                    TxtDoctor.Items.Add(item);
                 }
+                TxtDoctor.ValueMember = "Key";
+                TxtDoctor.DisplayMember = "Value";
                 reader.Close();
             }
         }
+       
         bool Validar()
         {
             if (TxtPaciente.Text == "")
@@ -142,14 +158,18 @@ namespace RegistroSangre
         }
         bool Guardar()
         {
+            KeyValuePair<int, string> selectedDoctor = (KeyValuePair<int, string>)TxtDoctor.SelectedItem;
+            KeyValuePair<int, string> selectedPaciente = (KeyValuePair<int, string>)TxtPaciente.SelectedItem;
 
 
             try
             {
-                string insertQuery = "INSERT INTO GrupoSangre (Paciente, Doctor, Grupo, Volumen, Estado, Fecha)   VALUES (@Paciente, @Doctor, @Grupo, @Volumen, @Estado, @Fecha)";
+                string insertQuery = "INSERT INTO GrupoSangre (Paciente,PacienteId, Doctor,DoctorId, Grupo, Volumen, Estado, Fecha)   VALUES (@Paciente, @PacienteId, @Doctor, @DoctorId, @Grupo, @Volumen, @Estado, @Fecha)";
                 SqlCommand command = new SqlCommand(insertQuery, connection);
-                command.Parameters.AddWithValue("@Paciente", TxtPaciente.Text);
-                command.Parameters.AddWithValue("@Doctor", TxtDoctor.Text);
+                command.Parameters.AddWithValue("@Paciente", selectedPaciente.Value);
+                command.Parameters.AddWithValue("@PacienteId", selectedPaciente.Key);
+                command.Parameters.AddWithValue("@Doctor", selectedDoctor.Value);
+                command.Parameters.AddWithValue("@DoctorId", selectedDoctor.Key);
                 command.Parameters.AddWithValue("@Grupo", TxtGrupo.Text);
                 command.Parameters.AddWithValue("@Volumen", TxtVolumen.Text);
                 command.Parameters.AddWithValue("@Estado", TxtEstado.Text);
@@ -174,7 +194,7 @@ namespace RegistroSangre
         {
             try
             {
-                string updateQuery = "UPDATE GrupoSangre SET Paciente = @Paciente, Doctor = @Doctor, Grupo = @Grupo, Volumen = @Volumen, Estado = @Estado, Fecha = @Fecha WHERE GrupoSangreId = @GrupoSangreId";
+                string updateQuery = "UPDATE GrupoSangre SET Paciente = @Paciente,PacienteId=@PacienteId Doctor = @Doctor,DoctorId=DoctorId, Grupo = @Grupo, Volumen = @Volumen, Estado = @Estado, Fecha = @Fecha WHERE GrupoSangreId = @GrupoSangreId";
                 SqlCommand command = new SqlCommand(updateQuery, connection);
                 command.Parameters.AddWithValue("@GrupoSangreId", GrupoSangreId);
                 command.Parameters.AddWithValue("@Paciente", TxtPaciente.Text);
@@ -225,6 +245,50 @@ namespace RegistroSangre
 
         }
 
+
+
+
+        public void GetPaciente(string nombre)
+        {
+
+            if(TxtPaciente.Items.Count > 0)
+            {
+                for (int i = 0; i < TxtPaciente.Items.Count; i++)
+                {
+                    TxtPaciente.SelectedIndex = i;
+                    string valor = TxtPaciente.Text;
+          
+        
+                    if (valor == nombre)
+                    {
+                        TxtPaciente.SelectedIndex = i;
+                        break;
+                    }
+
+                }
+            }
+        }
+
+        public void GetDoctor(string nombre)
+        {
+
+            if (TxtDoctor.Items.Count > 0)
+            {
+                for (int i = 0; i < TxtDoctor.Items.Count; i++)
+                {
+                    TxtDoctor.SelectedIndex = i;
+                    string valor = TxtDoctor.Text;
+                    
+
+                    if (valor == nombre)
+                    {
+                        TxtDoctor.SelectedIndex = i;
+                        break;
+                    }
+
+                }
+            }
+        }
         private void R_GupoSangre_Load(object sender, EventArgs e)
         {
 
@@ -264,6 +328,47 @@ namespace RegistroSangre
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void TxtPaciente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void TxtPaciente_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = TxtPaciente.Text.ToLower();
+            List<string> elementosFiltrados = new List<string>();
+
+            // Filtrar los elementos según el texto ingresado
+            foreach (string item in TxtPaciente.Items)
+            {
+                if (item.ToLower().Contains(filtro))
+                {
+                    elementosFiltrados.Add(item);
+                }
+            }
+
+            // Actualizar los elementos en el ComboBox
+            TxtPaciente.Items.Clear();
+            TxtPaciente.Items.AddRange(elementosFiltrados.ToArray());
+        }
+
+
+        private void R_GrupoSangre_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnBuscarCliente_Click(object sender, EventArgs e)
+        {
+            BuscarCliente buscarCliente = new BuscarCliente();
+            buscarCliente.ShowDialog();
+            
+            Global gb = new Global();
+           
+            GetPaciente(gb.Paciente);
+
         }
     }
 }

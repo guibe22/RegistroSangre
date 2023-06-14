@@ -46,6 +46,7 @@ namespace RegistroSangre
 
         private void BtnConsultaPacientes_Click(object sender, EventArgs e)
         {
+           
             C_Pacientes c_Pacientes = new C_Pacientes();
             c_Pacientes.Show();
         }
@@ -78,7 +79,7 @@ namespace RegistroSangre
 
         private void Menu_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void BtnConsultaUsuario_Click(object sender, EventArgs e)

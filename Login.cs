@@ -48,7 +48,7 @@ namespace RegistroSangre
         }
         void InciarSesion()
         {
-
+           
             string nombreUsuario = txtNombreUsuario.Text;
             string contraseña = txtContraseña.Text;
 
@@ -72,6 +72,7 @@ namespace RegistroSangre
 
                         Menu menu = new Menu(nombreUsuario, esAdmin);
                         menu.Show();
+                       
 
                         this.Visible = false;
 
@@ -106,6 +107,8 @@ namespace RegistroSangre
 
         private void BtnRegistroPacientes_Click(object sender, EventArgs e)
         {
+
+            
             if (txtNombreUsuario.Text == "")
             {
                 MessageBox.Show("Deber Proporcionar un Nombre de Usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
