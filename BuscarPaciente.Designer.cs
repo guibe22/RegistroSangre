@@ -1,6 +1,6 @@
 ﻿namespace RegistroSangre
 {
-    partial class BuscarCliente
+    partial class BuscarPaciente
     {
         /// <summary>
         /// Required designer variable.
@@ -86,8 +86,9 @@
             this.button2.TabIndex = 29;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // BuscarCliente
+            // BuscarPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -97,7 +98,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.BtnBuscar);
             this.Controls.Add(this.txtFiltro);
-            this.Name = "BuscarCliente";
+            this.Name = "BuscarPaciente";
             this.Text = "BuscarCliente";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

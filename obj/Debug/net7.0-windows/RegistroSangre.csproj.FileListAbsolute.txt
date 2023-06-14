@@ -32,4 +32,5 @@ C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\RegistroSan
 C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\RegistroSangre.Login.resources
 C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\RegistroSangre.R_Usuario.resources
 C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\RegistroSangre.C_Usuarios.resources
-C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\RegistroSangre.BuscarCliente.resources
+C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\RegistroSangre.BuscarDoctor.resources
+C:\Users\galve\Desktop\SIGLO\RegistroSangre\obj\Debug\net7.0-windows\RegistroSangre.BuscarPaciente.resources

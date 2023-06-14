@@ -8,16 +8,20 @@ namespace RegistroSangre
 {
     public class Global
     {
-       
-        public string? Doctor { get; set; }
-        public static string? prueba;
-     
 
-        public static string paciente;
-        public string Paciente
+        public static string? paciente;
+        public string? Paciente
         {
             set { paciente = value; }
             get { return paciente; }
+
+        }
+
+        public static string? doctor;
+        public string? Doctor
+        {
+            set { doctor = value; }
+            get { return doctor; }
 
         }
 

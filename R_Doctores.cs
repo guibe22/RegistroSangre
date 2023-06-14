@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace RegistroSangre
 {
@@ -192,11 +193,19 @@ namespace RegistroSangre
                 command.Parameters.AddWithValue("@FechaNacimiento", TxtNacimiento.Text);
                 command.Parameters.AddWithValue("@Especialidad", TxtEspecialidad.Text);
                 command.Parameters.AddWithValue("@Consultorio", TxtConsultorio.Text);
-
                 command.Parameters.AddWithValue("@DoctorId", DoctorId);
-
-
                 command.ExecuteNonQuery();
+
+
+                string nombrecompleto = $"{TxtNombre.Text} {TxtApellido.Text} ({TxtEspecialidad.Text})";
+                updateQuery = "UPDATE GrupoSangre SET Doctor = @Doctor WHERE DoctorId = @DoctorId ";
+                command = new SqlCommand(updateQuery, connection);
+                command.Parameters.AddWithValue("@Doctor", nombrecompleto);
+                command.Parameters.AddWithValue("@DoctorId", DoctorId);
+                command.ExecuteNonQuery();
+
+
+
 
                 MessageBox.Show("Modificado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

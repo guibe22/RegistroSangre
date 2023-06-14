@@ -38,7 +38,7 @@ namespace RegistroSangre
             BtnEliminar.Enabled = true;
 
 
-            string selectQuery = "SELECT Paciente, Doctor, Grupo, Volumen, Estado, Fecha FROM GrupoSangre WHERE GrupoSangreId = @GrupoSangreId";
+            string selectQuery = "SELECT Paciente, Doctor, Grupo, Volumen, Estado, Ingresado, Fecha FROM GrupoSangre WHERE GrupoSangreId = @GrupoSangreId";
             SqlCommand command = new SqlCommand(selectQuery, connection);
             command.Parameters.AddWithValue("@GrupoSangreId", GrupoSangreId);
 
@@ -53,6 +53,7 @@ namespace RegistroSangre
                 TxtVolumen.Text= reader["Volumen"].ToString();
                 TxtEstado.Text = reader["Estado"].ToString();
                 TxtFecha.Text = reader["Fecha"].ToString();
+                TxtIngresado.Text= reader["Ingresado"].ToString();
 
             }
             reader.Close();
@@ -142,6 +143,12 @@ namespace RegistroSangre
                 TxtEstado.Focus();
                 return false;
             }
+            if (TxtIngresado.Text == "")
+            {
+                MessageBox.Show("Debe insertar Ingresado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtIngresado.Focus();
+                return false;
+            }
             return true;
         }
         void Limpiar()
@@ -164,7 +171,7 @@ namespace RegistroSangre
 
             try
             {
-                string insertQuery = "INSERT INTO GrupoSangre (Paciente,PacienteId, Doctor,DoctorId, Grupo, Volumen, Estado, Fecha)   VALUES (@Paciente, @PacienteId, @Doctor, @DoctorId, @Grupo, @Volumen, @Estado, @Fecha)";
+                string insertQuery = "INSERT INTO GrupoSangre (Paciente,PacienteId, Doctor,DoctorId, Grupo, Volumen, Estado, Ingresado, Fecha)   VALUES (@Paciente, @PacienteId, @Doctor, @DoctorId, @Grupo, @Volumen, @Estado,@Ingresado, @Fecha)";
                 SqlCommand command = new SqlCommand(insertQuery, connection);
                 command.Parameters.AddWithValue("@Paciente", selectedPaciente.Value);
                 command.Parameters.AddWithValue("@PacienteId", selectedPaciente.Key);
@@ -173,6 +180,7 @@ namespace RegistroSangre
                 command.Parameters.AddWithValue("@Grupo", TxtGrupo.Text);
                 command.Parameters.AddWithValue("@Volumen", TxtVolumen.Text);
                 command.Parameters.AddWithValue("@Estado", TxtEstado.Text);
+                command.Parameters.AddWithValue("@Ingresado", TxtIngresado.Text);
                 command.Parameters.AddWithValue("@Fecha", TxtFecha.Text);
 
 
@@ -194,7 +202,7 @@ namespace RegistroSangre
         {
             try
             {
-                string updateQuery = "UPDATE GrupoSangre SET Paciente = @Paciente,PacienteId=@PacienteId Doctor = @Doctor,DoctorId=DoctorId, Grupo = @Grupo, Volumen = @Volumen, Estado = @Estado, Fecha = @Fecha WHERE GrupoSangreId = @GrupoSangreId";
+                string updateQuery = "UPDATE GrupoSangre SET Paciente = @Paciente,PacienteId=@PacienteId Doctor = @Doctor,DoctorId=DoctorId, Grupo = @Grupo, Volumen = @Volumen, Estado = @Estado,Ingresado=@Ingresado, Fecha = @Fecha WHERE GrupoSangreId = @GrupoSangreId";
                 SqlCommand command = new SqlCommand(updateQuery, connection);
                 command.Parameters.AddWithValue("@GrupoSangreId", GrupoSangreId);
                 command.Parameters.AddWithValue("@Paciente", TxtPaciente.Text);
@@ -202,6 +210,7 @@ namespace RegistroSangre
                 command.Parameters.AddWithValue("@Grupo", TxtGrupo.Text);
                 command.Parameters.AddWithValue("@Volumen", TxtVolumen.Text);
                 command.Parameters.AddWithValue("@Estado", TxtEstado.Text);
+                command.Parameters.AddWithValue("@Ingresado", TxtIngresado.Text);
                 command.Parameters.AddWithValue("@Fecha", TxtFecha.Text);
 
                 command.ExecuteNonQuery();
@@ -362,13 +371,23 @@ namespace RegistroSangre
 
         private void BtnBuscarCliente_Click(object sender, EventArgs e)
         {
-            BuscarCliente buscarCliente = new BuscarCliente();
+            BuscarPaciente buscarCliente = new BuscarPaciente();
             buscarCliente.ShowDialog();
             
             Global gb = new Global();
            
             GetPaciente(gb.Paciente);
 
+        }
+
+        private void BtnBuscarDoctor_Click(object sender, EventArgs e)
+        {
+            BuscarDoctor buscarDoctor = new BuscarDoctor();
+            buscarDoctor.ShowDialog();
+
+            Global gb = new Global();
+
+            GetDoctor(gb.Doctor);
         }
     }
 }

@@ -13,11 +13,11 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace RegistroSangre
 {
-    public partial class BuscarCliente : Form
+    public partial class BuscarPaciente : Form
     {
         string connectionString = "Data Source=DESKTOP-3STQB8L\\SQLEXPRESS;Initial Catalog=SangreBD;Integrated Security=True";
         SqlConnection connection;
-        public BuscarCliente()
+        public BuscarPaciente()
         {
             InitializeComponent();
             connection = new SqlConnection(connectionString);
@@ -68,7 +68,6 @@ namespace RegistroSangre
             string consultaFiltrada = $"{query} AND {filtro}";
           
 
-            // Ejecutar la consulta filtrada y actualizar el DataGridView
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -92,21 +91,28 @@ namespace RegistroSangre
                 // Obtener los datos de la fila seleccionada
                 DataGridViewRow filaSeleccionada = dataGridView1.SelectedRows[0];
                 int pacienteID = Convert.ToInt32(filaSeleccionada.Cells["PacienteID"].Value);
-                string nombre = filaSeleccionada.Cells["Nombre"].Value.ToString();
-                string apellido = filaSeleccionada.Cells["Apellido"].Value.ToString();
-                string cedula = filaSeleccionada.Cells["Cedula"].Value.ToString();
-                string dato = $"{nombre} {apellido} ({cedula})";
+                string? nombre = filaSeleccionada.Cells["Nombre"].Value.ToString();
+                string? apellido = filaSeleccionada.Cells["Apellido"].Value.ToString();
+                string? cedula = filaSeleccionada.Cells["Cedula"].Value.ToString();
+                string? dato = $"{nombre} {apellido} ({cedula})";
 
                 Global gb = new Global();
                 gb.Paciente = dato;
-
-                
-               // global.Paciente = 
               
                 this.Close();
             }
 
             
+        }
+
+        private void BuscarCliente_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

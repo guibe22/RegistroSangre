@@ -21,7 +21,7 @@ namespace RegistroSangre
             InitializeComponent();
             connection = new SqlConnection(connectionString);
             connection.Open();
-            string query = "SELECT GrupoSangreId , Paciente, PacienteId, Doctor, DoctorId, Grupo, Volumen, Estado , Fecha FROM GrupoSangre WHERE Deleted = 0";
+            string query = "SELECT GrupoSangreId , Paciente, PacienteId, Doctor, DoctorId, Grupo, Volumen, Estado, Ingresado , Fecha FROM GrupoSangre WHERE Deleted = 0";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -51,7 +51,7 @@ namespace RegistroSangre
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 DataGridViewRow row = dataGridView1.SelectedRows[0];
-                string idString = row.Cells["GrupoSangreId"].Value.ToString();
+                string? idString = row.Cells["GrupoSangreId"].Value.ToString();
                 int id = int.Parse(idString);
                 R_GrupoSangre r_GrupoSangre = new R_GrupoSangre(id);
                 r_GrupoSangre.Show();
@@ -60,6 +60,54 @@ namespace RegistroSangre
             else
             {
                 MessageBox.Show("Selecciona una fila antes de hacer clic en Modificar");
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT GrupoSangreId , Paciente, PacienteId, Doctor, DoctorId, Grupo, Volumen, Estado, Ingresado , Fecha FROM GrupoSangre WHERE Deleted = 0";
+            string filtro = "";
+            string valorFiltro = txtFiltro.Text.Trim();
+            string consultaFiltrada = "";
+
+            if (!string.IsNullOrEmpty(valorFiltro))
+            {
+
+                filtro += $"(GrupoSangreId LIKE '%{valorFiltro}%' OR " +
+                          $"Paciente LIKE '%{valorFiltro}%' OR " +
+                          $"Doctor LIKE '%{valorFiltro}%' OR " +
+                          $"Grupo LIKE '%{valorFiltro}%' OR " +
+                          $"Volumen LIKE '%{valorFiltro}%' OR " +
+                          $"Estado LIKE '%{valorFiltro}%' OR " +
+                          $"Ingresado LIKE '%{valorFiltro}%') ";
+                        
+                consultaFiltrada = $"{query} AND {filtro}";
+            }
+            else
+            {
+                consultaFiltrada = $"{query}";
+            }
+
+
+
+
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(consultaFiltrada, connection))
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    dataGridView1.DataSource = dataTable;
+                }
             }
         }
     }

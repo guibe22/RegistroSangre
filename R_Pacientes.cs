@@ -105,8 +105,13 @@ namespace RegistroSangre
                 command.Parameters.AddWithValue("@Genero", TxtGenero.Text);
                 command.Parameters.AddWithValue("@FechaNacimiento", TxtNacimiento.Text);
                 command.Parameters.AddWithValue("@PacienteId", PacienteId);
+                command.ExecuteNonQuery();
 
-
+                string nombrecompleto = $"{TxtNombre.Text} {TxtApellido.Text} ({TxtCedula.Text})";
+                updateQuery = "UPDATE GrupoSangre SET Paciente = @Paciente WHERE PacienteId = @PacienteId ";
+                command = new SqlCommand(updateQuery, connection);
+                command.Parameters.AddWithValue("@Paciente", nombrecompleto);
+                command.Parameters.AddWithValue("@PacienteId", PacienteId);
                 command.ExecuteNonQuery();
 
                 MessageBox.Show("Modificado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);

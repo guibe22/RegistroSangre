@@ -11,20 +11,22 @@ using System.Windows.Forms;
 
 namespace RegistroSangre
 {
-    public partial class C_Doctores : Form
+
+    public partial class BuscarDoctor : Form
     {
         string connectionString = "Data Source=DESKTOP-3STQB8L\\SQLEXPRESS;Initial Catalog=SangreBD;Integrated Security=True";
         SqlConnection connection;
-        public C_Doctores()
+        public BuscarDoctor()
         {
             InitializeComponent();
             connection = new SqlConnection(connectionString);
-            connection.Open();
+
             string query = "SELECT DoctorId, Nombre, Apellido, Cedula, Direccion, Correo, Telefono, Genero, FechaNacimiento, Especialidad, Consultorio FROM Doctores WHERE Deleted = 0";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
+
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -37,30 +39,6 @@ namespace RegistroSangre
 
 
             }
-          
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void BtnModificar_Click(object sender, EventArgs e)
-        {
-           
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                DataGridViewRow row = dataGridView1.SelectedRows[0];
-                string idString = row.Cells["DoctorId"].Value.ToString();
-                int id = int.Parse(idString);
-                R_Doctores r_Doctores = new R_Doctores(id);
-                r_Doctores.Show();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Selecciona una fila antes de hacer clic en Modificar");
-            }
         }
 
         private void BtnBuscar_Click(object sender, EventArgs e)
@@ -68,12 +46,11 @@ namespace RegistroSangre
             string query = "SELECT DoctorId, Nombre, Apellido, Cedula, Direccion, Correo, Telefono, Genero, FechaNacimiento, Especialidad, Consultorio FROM Doctores WHERE Deleted = 0";
             string filtro = "";
             string valorFiltro = txtFiltro.Text.Trim();
-            string consultaFiltrada = "";
 
             if (!string.IsNullOrEmpty(valorFiltro))
             {
-
-                filtro += $"(DoctorId LIKE '%{valorFiltro}%' OR " +
+                
+                filtro += $"( DoctorId LIKE '%{valorFiltro}%' OR " +
                           $"Nombre LIKE '%{valorFiltro}%' OR " +
                           $"Apellido LIKE '%{valorFiltro}%' OR " +
                           $"Cedula LIKE '%{valorFiltro}%' OR " +
@@ -84,17 +61,16 @@ namespace RegistroSangre
                           $"FechaNacimiento LIKE '%{valorFiltro}%' OR " +
                           $"Especialidad LIKE '%{valorFiltro}%' OR " +
                           $"Consultorio LIKE '%{valorFiltro}%')";
-               consultaFiltrada = $"{query} AND {filtro}";
             }
             else
             {
-               consultaFiltrada = $"{query}";
+                return;
             }
 
+            string consultaFiltrada = $"{query} AND {filtro}";
+
+
             
-
-
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -109,9 +85,34 @@ namespace RegistroSangre
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+               
+                DataGridViewRow filaSeleccionada = dataGridView1.SelectedRows[0];
+                int pacienteID = Convert.ToInt32(filaSeleccionada.Cells["DoctorId"].Value);
+                string? nombre = filaSeleccionada.Cells["Nombre"].Value.ToString();
+                string? apellido = filaSeleccionada.Cells["Apellido"].Value.ToString();
+                string? especialidad = filaSeleccionada.Cells["Especialidad"].Value.ToString();
+                string? dato = $"{nombre} {apellido} ({especialidad})";
+
+                Global gb = new Global();
+                gb.Doctor = dato;
+
+
+                this.Close();
+            }
+        }
+
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

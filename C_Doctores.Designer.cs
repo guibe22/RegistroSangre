@@ -32,13 +32,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.BtnModificar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.BtnBuscar = new System.Windows.Forms.Button();
+            this.txtFiltro = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -60,7 +63,7 @@
             // BtnModificar
             // 
             this.BtnModificar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnModificar.Location = new System.Drawing.Point(3, 69);
+            this.BtnModificar.Location = new System.Drawing.Point(0, 127);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.Size = new System.Drawing.Size(145, 42);
             this.BtnModificar.TabIndex = 4;
@@ -70,21 +73,43 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 129);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 175);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1324, 333);
+            this.dataGridView1.Size = new System.Drawing.Size(1185, 333);
             this.dataGridView1.TabIndex = 5;
+            // 
+            // BtnBuscar
+            // 
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.BtnBuscar.Location = new System.Drawing.Point(1080, 85);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(89, 29);
+            this.BtnBuscar.TabIndex = 30;
+            this.BtnBuscar.Text = "Buscar";
+            this.BtnBuscar.UseVisualStyleBackColor = true;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
+            // 
+            // txtFiltro
+            // 
+            this.txtFiltro.CausesValidation = false;
+            this.txtFiltro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtFiltro.Location = new System.Drawing.Point(845, 85);
+            this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.Size = new System.Drawing.Size(208, 29);
+            this.txtFiltro.TabIndex = 29;
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // C_Doctores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 450);
+            this.ClientSize = new System.Drawing.Size(1184, 508);
+            this.Controls.Add(this.BtnBuscar);
+            this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.BtnModificar);
             this.Controls.Add(this.panel1);
@@ -94,6 +119,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -103,5 +129,7 @@
         private Label label1;
         private Button BtnModificar;
         private DataGridView dataGridView1;
+        private Button BtnBuscar;
+        private TextBox txtFiltro;
     }
 }

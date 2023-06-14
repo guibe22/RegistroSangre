@@ -296,6 +296,7 @@
             this.BtnBuscarDoctor.Size = new System.Drawing.Size(49, 42);
             this.BtnBuscarDoctor.TabIndex = 55;
             this.BtnBuscarDoctor.UseVisualStyleBackColor = false;
+            this.BtnBuscarDoctor.Click += new System.EventHandler(this.BtnBuscarDoctor_Click);
             // 
             // R_GrupoSangre
             // 

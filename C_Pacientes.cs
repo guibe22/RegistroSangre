@@ -65,5 +65,49 @@ namespace RegistroSangre
         {
             
         }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT PacienteID, Nombre, Apellido, Cedula, Direccion, Correo, Telefono, Genero, FechaNacimiento FROM Pacientes WHERE Deleted = 0";
+            string filtro = "";
+            string valorFiltro = txtFiltro.Text.Trim();
+            string consultaFiltrada = "";
+
+            if (!string.IsNullOrEmpty(valorFiltro))
+            {
+                // Agregar el criterio de filtrado para cada campo que deseas incluir en la búsqueda
+                filtro += $"(PacienteID LIKE '%{valorFiltro}%' OR " +
+                          $"Nombre LIKE '%{valorFiltro}%' OR " +
+                          $"Apellido LIKE '%{valorFiltro}%' OR " +
+                          $"Cedula LIKE '%{valorFiltro}%' OR " +
+                          $"Direccion LIKE '%{valorFiltro}%' OR " +
+                          $"Correo LIKE '%{valorFiltro}%' OR " +
+                          $"Telefono LIKE '%{valorFiltro}%' OR " +
+                          $"Genero LIKE '%{valorFiltro}%' OR " +
+                          $"FechaNacimiento LIKE '%{valorFiltro}%')";
+               consultaFiltrada = $"{query} AND {filtro}";
+            }
+            else
+            {
+               consultaFiltrada = $"{query}";
+            }
+
+           
+
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(consultaFiltrada, connection))
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    dataGridView1.DataSource = dataTable;
+                }
+            }
+
+        }
     }
 }
