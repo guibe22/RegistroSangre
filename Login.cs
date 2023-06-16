@@ -14,7 +14,9 @@ namespace RegistroSangre
 {
     public partial class Login : Form
     {
-        string connectionString = "Data Source=DESKTOP-3STQB8L\\SQLEXPRESS;Initial Catalog=SangreBD;Integrated Security=True";
+        string connectionString = "Data Source=172.20.1.4;Initial Catalog=SangreBD;User ID=lbsangre;Password=12345678;";
+
+
         SqlConnection connection;
         public Login()
         {
