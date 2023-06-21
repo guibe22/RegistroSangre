@@ -34,6 +34,7 @@ namespace RegistroSangre
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
                     dataGridView1.DataSource = dataTable;
+                    dataGridView1.AllowUserToAddRows = false;
 
                 }
 
@@ -78,6 +79,7 @@ namespace RegistroSangre
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
                     dataGridView1.DataSource = dataTable;
+                    dataGridView1.AllowUserToAddRows = false;
                 }
             }
 

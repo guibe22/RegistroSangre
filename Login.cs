@@ -24,7 +24,11 @@ namespace RegistroSangre
             connection = new SqlConnection(connectionString);
             connection.Open();
             CrearUsuarioSiEstaVacia();
-         
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+
 
 
         }

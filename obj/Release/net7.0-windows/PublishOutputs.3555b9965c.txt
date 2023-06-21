@@ -1,0 +1,11 @@
+C:\Users\galve\Documents\REGISTRO SANGRE\RegistroSangre.exe
+C:\Users\galve\Documents\REGISTRO SANGRE\RegistroSangre.dll
+C:\Users\galve\Documents\REGISTRO SANGRE\RegistroSangre.deps.json
+C:\Users\galve\Documents\REGISTRO SANGRE\RegistroSangre.runtimeconfig.json
+C:\Users\galve\Documents\REGISTRO SANGRE\RegistroSangre.pdb
+C:\Users\galve\Documents\REGISTRO SANGRE\System.Data.SqlClient.dll
+C:\Users\galve\Documents\REGISTRO SANGRE\runtimes\win-arm64\native\sni.dll
+C:\Users\galve\Documents\REGISTRO SANGRE\runtimes\win-x64\native\sni.dll
+C:\Users\galve\Documents\REGISTRO SANGRE\runtimes\win-x86\native\sni.dll
+C:\Users\galve\Documents\REGISTRO SANGRE\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\galve\Documents\REGISTRO SANGRE\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
